@@ -1,2 +1,0 @@
-# workos-demo-api
- 
