@@ -1,3 +1,8 @@
+## Getting Started
+
+### Install And Setup MongoDB Locally
+https://docs.mongodb.com/manual/installation/
+
 ### `npm install`
 Installs all necessary dependencies.
 
@@ -7,7 +12,7 @@ Builds the project and fills the Slack user database to match Slack's user API.
 ### `npm run server` 
 Builds the project runs the server locally at port 8081;
 
-### Things to do:
+## Things to do:
 
 1. Add a utility class to handle NoSQL injection
 2. Move tokens out of the config file and out of the repository
