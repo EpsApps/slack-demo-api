@@ -99,6 +99,28 @@ export default class MongoDBObject {
             });
         });
     }
+    
+    findOneAndUpdate(query = {}, object = {}) {
+        return new Promise((resolve, reject) => {
+            MongoClient.connect(this.url, (error, client) => {
+                if (error) {
+                    client.close();
+                    reject({ error: INTERAL_SERVER_ERROR });
+                }
+                const db = client.db(this.dbName);
+                const collection = db.collection(this.collection);
+                collection.findOneAndUpdate(query, object, (error, result) => {
+                    if (error) {
+                        client.close();
+                        reject({ error: INTERAL_SERVER_ERROR });
+                    } else {
+                        client.close();
+                        resolve(result);
+                    }
+                });
+            });
+        });
+    }
 
     updateOne(query = {}, object = {}) {
         return new Promise((resolve, reject) => {
